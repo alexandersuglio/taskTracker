@@ -1,25 +1,49 @@
+var connection = require('./connection.js');
 var express = require('express');
-var parse = require('body-parser');
+var bodyParser = require("body-parser");
+var methodOverride = require('method-override')
+var exphbs = require("express-handlebars");
+
 var app = express();
 
-var PORT = process.env.PORT || 3000;
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+var PORT = 3000 || process.env.PORT;
 
-app.listen(PORT, function(){
-console.log("App connected and listening");
+app.listen(PORT, function() {
+    console.log('app connected and listening');
+})
+
+
+app.get("/", function(req, res) {
+    console.log("server firing");
+    connection.query("SELECT * FROM todoList", function(err, data) {
+        if (err) throw err;
+        res.render("index", { task: data });
+    });
 });
 
-app.use(parse.json());
-app.use(parse.urlencoded({ extended: true }));
-app.use(parse.text());
-app.use(parse.json({ type: "application/vnd.api+json" }));
+app.post("/create", function(req, res) {
 
-app.use(express.static("Public"));
-app.use(express.static(__dirname));
+    connection.query("insert into todoList (task_description) values (?)", [req.body.task], function(err, data) {
+res.redirect("/");
+    });
 
-var htmlRoutes = require("./htmlRoutes.js");
-var apiRoutes = require("./apiRoutes.js");
+});
 
-// htmlRoutes(app);
+app.delete('/delete', function(req,res){
+	connection.query('delete from todolist where id =?', [req.body.id], function(err,data){
+	
+res.redirect("/");
+			
+	
+	});
+});
 
-htmlRoutes(app);
-apiRoutes(app);
+app.put('/update', function(req, res){
+	connection.query('update todolist set task_description = ? where id = ? ', [req.body.task, req.body.id], function(err, data){
+		res.redirect('/');
+	});
+});
