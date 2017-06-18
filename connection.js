@@ -13,7 +13,7 @@ if ('mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-
 } else {
 
     connection = mySQL.createConnection({
-        port: 3306,
+        // port: 3306,
         host: 'localhost',
         user: 'root',
         password: 'root',
