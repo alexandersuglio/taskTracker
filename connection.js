@@ -7,12 +7,12 @@ if (process.env.JAWSDB_URL) {
 
 } else {
 
-   connection = mySQL.createConnection({
+    var connection = mySQL.createConnection({
         // port: 3306,
         host: 'localhost',
         user: 'root',
-        password: 'hacktheplanet',
-        database: 'todoagain_db'
+        password: 'root',
+        database: 'taskDB'
     });
 
 
