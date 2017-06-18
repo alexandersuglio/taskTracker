@@ -1,11 +1,11 @@
 var mySQL = require('mysql');
 var connection;
 
-if ('mysql://mqrs75wut4ubcx6o:vsj57p27dcl42e90@lg7j30weuqckmw07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dlgwn6j0uhg770o9'
+if ('mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dr6l97f3ntw6lp4t'
 
 ) {
 
-    connection = mySQL.createConnection('mysql://mqrs75wut4ubcx6o:vsj57p27dcl42e90@lg7j30weuqckmw07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dlgwn6j0uhg770o9'
+    connection = mySQL.createConnection('mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dr6l97f3ntw6lp4t'
 
     );
 
