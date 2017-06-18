@@ -1,13 +1,9 @@
 var mySQL = require('mysql');
 var connection;
 
-if (process.env.'mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dr6l97f3ntw6lp4t'
+if (process.env.JAWSDB_URL) {
 
-) {
-
-    connection = mySQL.createConnection(process.env.'mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dr6l97f3ntw6lp4t'
-
-    );
+    connection = mySQL.createConnection(process.env.JAWSDB_URL);
 
 
 } else {
