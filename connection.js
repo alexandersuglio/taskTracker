@@ -1,25 +1,22 @@
 var mySQL = require('mysql');
-// var connection;
+var connection;
 
-// if (process.env.JAWSDB_URL) {
+if (process.env.JAWSDB_URL) {
 
-//     connection = mySQL.createConnection(process.env.'mysql://g7545q5v6u1yowlf:pgjcvkxrl7prurch@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dr6l97f3ntw6lp4t'
+    connection = mySQL.createConnection(process.env.JAWSDB_URL);
 
-//     );
+} else {
 
-
-// } else {
-
-  var connection = mySQL.createConnection({
-        port: 3306,
-        host: 'r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'g7545q5v6u1yowlf',
-        password: 'pgjcvkxrl7prurch',
-        database: 'dr6l97f3ntw6lp4t'
+    connection = mySQL.createConnection({
+        // port: 3306,
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'taskDB'
     });
 
 
-// };
+};
 
 
 connection.connect();
