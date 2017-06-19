@@ -4,11 +4,8 @@ var connection = mySQL.createConnection(process.env.JAWSDB_URL || {
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'taskDB'
+    database: 'task'
 });
-
-
-};
 
 
 connection.connect();

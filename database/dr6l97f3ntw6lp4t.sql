@@ -1,1 +1,0 @@
-SELECT * FROM dr6l97f3ntw6lp4t.todolist;
