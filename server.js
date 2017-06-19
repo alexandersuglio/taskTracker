@@ -11,9 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-var PORT = 3000 || process.env.PORT;
+// var PORT = 3000 || process.env.PORT;
 
-
+var PORT = process.env.PORT || 3000;
 
 app.get("/", function(req, res) {
     console.log("server firing");
